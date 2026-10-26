@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production';
+// Only apply the repo subpath on GitHub Actions (for GitHub Pages).
+// On Vercel, localhost, or custom domains, basePath remains empty ('').
+const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
+const basePath = isGitHubPages ? '/voisage-ai-landing-page' : '';
 
 const nextConfig = {
   reactStrictMode: true,
@@ -7,9 +10,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: isProd ? '/voisage-ai-landing-page' : '',
+  basePath: basePath,
   env: {
-    NEXT_PUBLIC_BASE_PATH: isProd ? '/voisage-ai-landing-page' : '',
+    NEXT_PUBLIC_BASE_PATH: basePath,
   },
 };
 
