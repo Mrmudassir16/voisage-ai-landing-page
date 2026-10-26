@@ -8,7 +8,6 @@ const nextConfig = {
     unoptimized: true,
   },
   basePath: isProd ? '/voisage-ai-landing-page' : '',
-  assetPrefix: isProd ? '/voisage-ai-landing-page/' : '',
   env: {
     NEXT_PUBLIC_BASE_PATH: isProd ? '/voisage-ai-landing-page' : '',
   },
